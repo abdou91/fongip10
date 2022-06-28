@@ -41,6 +41,10 @@ Main Features
         #'data/fleet_data.xml',
         #'data/mail_data.xml',
     ],
+    'qweb' : [
+    
+    ],
+    'license': 'LGPL-3',
 
     #'demo': ['data/fleet_demo.xml'],
 
