@@ -22,7 +22,6 @@
         'base',
         'hr',
         'mail',
-        'budget',
         'contracts',
     ],
 
