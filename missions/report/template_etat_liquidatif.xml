@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="missions.report_etat_liquidatif_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <!--div class="row mt0 mb0">
+                    <img class="col-xs-2" style="margin-top: 0 px !important;margin-bottom: 0 px !important;" src='/fongip_parc_automobile/static/description/fongip_logo.png'/>
+                </div-->
+                <h3 style="text-align:center;color:#581112;">ETAT RECAPUTILATIF DES FRAIS DE MISSION N° <span t-field="o.numero_mission"/></h3>
+                <h4 style="text-align:center;color:#581112;">(du <span t-field="o.date_debut"/> au <span t-field="o.date_fin"/>) <span t-field="o.trajet"/> </h4>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center" ><strong>N° d'ordre</strong></th>
+                            <th class="text-center" ><strong>Prénom</strong></th>
+                            <th class="text-center" ><strong>Nom</strong></th>
+                            <th class="text-center" ><strong>Fonction</strong></th>
+                            <th class="text-center" ><strong>Nombre de nuités</strong></th>
+                            <th class="text-center" ><strong>Montant indemnité journalière</strong></th>
+                            <th class="text-center" ><strong>Montant Total</strong></th>
+                            <th class="text-center" ><strong>Montant avancé (2/3)</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.equipe_mission" t-as="missionnaire">
+                            <td class="text-center">
+                                <span t-esc="missionnaire_index + 1"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.first_name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.last_name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.titre_poste"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="o.nombre_nuites"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.indemnite_journaliere"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-esc="o.nombre_nuites * missionnaire.indemnite_journaliere"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.montant_avance"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="text-center">Total</td>
+                            <!--td class="text-center">
+                                <span t-esc="len(o.equipe_mission) * o.type_mission.montant"/>
+                            </td-->
+                            <td class="text-center">
+                                <span t-field="o.total_perdieme"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="o.total_avance"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <!--p>Arrêté le présent état récapitulatif au montant de </p>
+                <div class="oe_structure">
+                    <div class="row">
+                        <div class="col-xs-4 col-xs-push-8">
+                            <strong>L'Administrateur général</strong>
+                        </div>
+                        <div class="col-xs-8 col-xs-pull-4">
+                            <strong>Le Directeur administratif et financier</strong>
+                        </div>
+                    </div>
+                </div-->
+            </div> 
+            <!--deuxieme page -->
+            <div class="page">
+                <p style="page-break-after:always;">   </p>
+                
+                <!--div class="row mt0 mb0">
+                    <img class="col-xs-2" style="margin-top: 0 px !important;margin-bottom: 0 px !important;" src='/fongip_parc_automobile/static/description/fongip_logo.png'/>
+                </div-->
+                <h3 style="text-align:center;color:#581112;">ETAT RECAPUTILATIF DES FRAIS DE MISSION N° <span t-field="o.numero_mission"/></h3>
+                <h4 style="text-align:center;color:#581112;">(du <span t-field="o.date_debut"/> au <span t-field="o.date_fin"/>) <span t-field="o.trajet"/> </h4>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center" ><strong>N° d'ordre</strong></th>
+                            <th class="text-center" ><strong>Prénom</strong></th>
+                            <th class="text-center" ><strong>Nom</strong></th>
+                            <th class="text-center" ><strong>Fonction</strong></th>
+                            <th class="text-center" ><strong>Nombre de nuités</strong></th>
+                            <th class="text-center" ><strong>Montant indemnité journalière</strong></th>
+                            <th class="text-center" ><strong>Montant Avancé</strong></th>
+                            <th class="text-center" ><strong>Montant restant à payer</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.equipe_mission" t-as="missionnaire">
+                            <td class="text-center">
+                                <span t-esc="missionnaire_index + 1"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.first_name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.last_name"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.titre_poste"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="o.nombre_nuites"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.indemnite_journaliere"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="missionnaire.montant_avance"/>
+                            </td>
+
+                            <td class="text-center">
+                                <span t-field="missionnaire.montant_restant"/>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="6" class="text-center">Total</td>
+                            <!--td class="text-center">
+                                <span t-esc="len(o.equipe_mission) * o.type_mission.montant"/>
+                            </td-->
+                            <td class="text-center">
+                                <span t-field="o.total_avance"/>
+                            </td>
+                            <td class="text-center">
+                                <span t-field="o.total_restant"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_etat_liquidatif">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="missions.report_etat_liquidatif_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>
+    

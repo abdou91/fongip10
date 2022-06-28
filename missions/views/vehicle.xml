@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+  	<record id="fleet_vehicle_log_fuel_view_inherited_form" model="ir.ui.view">
+            <field name="name">fleet.vehicle.log.fuel.inherited.form</field>
+            <field name="model">fleet.vehicle.log.fuel</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_log_fuel_view_form"/>
+            <field eval="18" name="priority"/>
+            <!--field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/-->
+            <field name="arch" type="xml">
+              <field name="liter" position="before">
+                <field name="source"/>
+                <field name="carte_carburant" attrs="{'invisible':[('source','=','ticket')]}"/>
+                <field name="nombre_tickets" attrs="{'invisible':[('source','=','carte')]}"/>
+              </field>
+
+              <!--field name="date" position="after">
+                <field name="date_heure"/>
+                <field name="conducteur"/>
+                <field name="destination"/>
+                <field name="observations"/>
+              </field>
+              <xpath expr="//field[@name='date']" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </xpath>
+              <xpath expr="//field[@name='purchaser_id']" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </xpath> 
+              <xpath expr="//field[@name='inv_ref']" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </xpath>
+              <xpath expr="//field[@name='vendor_id']" position="attributes">
+                  <attribute name="invisible">True</attribute>
+              </xpath-->
+                
+            </field>
+    </record>
+  </data>
+</odoo>
