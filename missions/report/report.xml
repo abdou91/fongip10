@@ -2,7 +2,7 @@
 <odoo>
 
 
-        <report 
+        <!--report 
             string="Ordre de mission" 
             id="report_ordre_mission" 
             model="missionnaire" 
@@ -20,7 +20,7 @@
             menu="False"
             name="missions.report_etat_liquidatif" 
             file="missions.report_etat_liquidatif"
-        />
+        /-->
 
         <!--report 
             string="Info mission for RH" 

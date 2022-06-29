@@ -9,7 +9,7 @@
           <header>
             <button modifiers="{'invisible': [['state', '=', 'done']]}" name="commencer" states="open" string="Démarrer" type="object" class="oe_highlight"/>
             <button modifiers="{'invisible': [['state', '=','done']]}" name="terminer" states="in_progress" string="Terminer" type="object" class="oe_highlight"/>
-            <button  name="action_print_etat_liquidatif" string="Imprimer l'etat liquidatif" type="object" class="oe_highlight"/>
+            <!--button  name="action_print_etat_liquidatif" string="Imprimer l'etat liquidatif" type="object" class="oe_highlight"/-->
 
             <!--button  name="run_scheduler" string="Run scheduler" type="object" class="oe_highlight"/>
             <button  name="demarrer_ou_terminer_mission" string="Demarrer ou terminer mission" type="object" class="oe_highlight"/-->
@@ -105,12 +105,12 @@
                         <field name="montant_avance" sum="Total"/> <!--  attrs="{'invisible':[('visible','=',False)]}"-->
                         <field name="montant_restant" sum="Total"/><!--  attrs="{'invisible':[('visible','=',False)]}"-->
                         <field name="montant_total" sum="Total"  /><!--  attrs="{'invisible':[('visible','=',False)]}"-->
-                        <button 
+                        <!--button 
                             string="Imprimer odre de mission"
                             name="action_print_ordre_mission" 
                             type="object"
                             class="oe_highlight"
-                        />
+                        /-->
                       </tree>
                     </field>
                   </page>

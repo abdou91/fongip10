@@ -165,8 +165,8 @@ class Missionnaire(models.Model):
 
 
 
-	def action_print_ordre_mission(self):
-		return self.env.ref('missions.report_ordre_mission').report_action(self)
+	"""def action_print_ordre_mission(self):
+		return self.env.ref('missions.report_ordre_mission').report_action(self)"""
 
 class PerdiumPayment(models.Model):
 	_name = 'perdium.mode.payment'
@@ -179,6 +179,7 @@ class PerdiumPayment(models.Model):
 
 class MissionType(models.Model):
 	_name = 'mission.type'
+	_description = 'Type de mission'
 	name = fields.Char(string='Libellé')
 	payment_perdium = fields.Selection([('paiement_partiel','Paiement partiel'),('paiement_total','Paiement total')],default="paiement_total",string="Conditions de paiement du perdium")
 	pourcentage = fields.Char(string = "Pourcentage",help="format du pourcentage a/b")
@@ -318,8 +319,8 @@ class Mission(models.Model):
 					self.visible = False
 
 
-	def action_print_etat_liquidatif(self):
-		return self.env.ref('missions.report_etat_liquidatif_mission').report_action(self)
+	"""def action_print_etat_liquidatif(self):
+		return self.env.ref('missions.report_etat_liquidatif_mission').report_action(self)"""
 
 	"""@api.multi
 	def action_print_all_ordre_mission(self):
