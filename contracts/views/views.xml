@@ -27,7 +27,7 @@
     </record>
     <!-- actions opening views on models -->
     
-    <record model="ir.actions.act_window" id="contract_type_action">
+    <!--record model="ir.actions.act_window" id="contract_type_action">
       <field name="name">Type de contrat</field>
       <field name="res_model">contract.type</field>
       <field name="view_mode">tree,form</field>
@@ -36,7 +36,7 @@
           Cliquer pour enregistrer un nouveau type de contrat.
         </p>
       </field>
-    </record>
+    </record-->
 
 
 <record id="fongip_banque_juridique_contrat_form" model="ir.ui.view">

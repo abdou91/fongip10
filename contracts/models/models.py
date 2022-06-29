@@ -42,14 +42,14 @@ class Respartner(models.Model):
 class FongipJuridiqueTypeContrat(models.Model):
     _name = 'contract.type'
     _description = "Contracts"
-    name = fields.Char(string=u'Type de contrat', size=128)
-    code = fields.Char(string=u'Code', size=128)
+    name = fields.Char(string=u'Type de contrat')
+    code = fields.Char(string=u'Code')
 
 
 class FongipJuridiqueContrat(models.Model):
     _name = 'contract'
     _description = 'Contract'
-    name = fields.Char(string=u'Nom du contrat', size=128)
+    name = fields.Char(string=u'Nom du contrat')
     reference = fields.Char(string="Référence")
     type_id_code = fields.Char(compute="_compute_code", store=True, readonly=True)
     type_id = fields.Many2one('contract.type', string=u'Type du contrat')
