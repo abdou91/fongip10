@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_contract_type,contract.type,model_contract_type,group_juridique,1,1,1,1
+access_contract,contract,model_contract,group_juridique,1,1,1,1
+access_contract_decaissement,contract_decaissement,model_contract_decaissement,group_juridique,1,1,1,1
+access_contract_avenant,contract_avenant,model_contract_avenant,group_juridique,1,1,1,1
