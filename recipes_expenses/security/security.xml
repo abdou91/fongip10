@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--record id="module_recipes_expenses_category" model="ir.module.category">
+            <field name="name">Recettes - Dépenses</field>
+            <field name="sequence">18</field>
+    </record-->
+    <record id="recipes_group_user" model="res.groups">
+            <field name="name">Utilsateur</field>
+            <!--field name="category_id" ref="base.module_category_accounting_accounting_recipes_expenses"/-->
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="recipes_group_manager" model="res.groups">
+            <field name="name">Administrateur</field>
+            <field name="implied_ids" eval="[(4, ref('recipes_group_user'))]"/>
+            <!--field name="category_id" ref="base.module_category_accounting_accounting_recipes_expenses"/-->
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <data noupdate="0">
+        <record id="base.default_user" model="res.users">
+            <field name="groups_id" eval="[(4,ref('recipes_expenses.recipes_group_manager'))]"/>
+        </record>
+        
+    </data>
+</odoo>

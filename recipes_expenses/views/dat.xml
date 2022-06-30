@@ -1,0 +1,202 @@
+<odoo>
+  <data>
+    <!--*************DAT***************** -->
+    <record id="bank_dat_form" model="ir.ui.view">
+      <field name="name">bank.dat.form</field>
+      <field name="model">bank.dat</field>
+      <field name="arch" type="xml">
+        <form string="DAT">
+          <sheet>
+            <group col="2">
+              <group>
+                <field name="name"/>
+                <field name="bank_id"/>
+                <field name="bank_account_id"/>
+                <field name="contract_id"/>
+                <field name="rate"/>
+                <field name="duration"/>
+                <field name="payment_frequency"/>
+              </group>
+              <group>
+                <field name="value_of_date"/>
+                <field name="maturity_of_date"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="amount" options="{'currency_field': 'currency_id'}"/>
+                <field name="interest" options="{'currency_field': 'currency_id'}"/>
+                <field name="outstanding_amount" options="{'currency_field': 'currency_id'}"/>
+                <field name="released_amount" options="{'currency_field': 'currency_id'}"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="bank_dat_tree" model="ir.ui.view">
+      <field name="name">bank.dat.tree</field>
+      <field name="model">bank.dat</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="bank_id"/>
+          <field name="bank_account_id"/>
+          <field name="contract_id"/>
+          <field name="rate"/>
+          <field name="duration"/>
+          <field name="payment_frequency"/>
+          <field name="value_of_date"/>
+          <field name="maturity_of_date"/>
+          <field name="amount"/>
+          <field name="interest"/>
+          <field name="outstanding_amount" />
+          <field name="released_amount"/>
+        </tree>
+      </field>
+    </record>
+    <record id="bank_dat_filter" model="ir.ui.view">
+        <field name="name">bank.dat.search</field>
+        <field name="model">bank.dat</field>
+        <field name="arch" type="xml">
+            <search string="DAT">
+                <field name="name"/>
+                <field name="bank_id"/>
+                <field name="bank_account_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="groupby_bank_id" context="{'group_by': 'bank_id'}" string="Bank"/>
+                    <filter name="groupby_bank_account_id" context="{'group_by': 'bank_account_id'}" string="Compte bancaire"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+    <!--*************Banques***************** -->
+    <record id="res_bank_tree" model="ir.ui.view">
+      <field name="name">res.bank.tree</field>
+      <field name="model">res.bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="bic"/>
+          <field name="phone"/>
+          <field name="email"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--*************Comptes bancaires***************** -->
+    <record id="res_partner_bank_tree" model="ir.ui.view">
+      <field name="name">res.partner.bank.tree</field>
+      <field name="model">res.partner.bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="acc_number"/>
+          <field name="partner_id"/>
+          <field name="bank_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="bank_dat_action">
+      <field name="name">DAT</field>
+      <field name="res_model">bank.dat</field>
+      <field name="view_mode">tree,form</field>
+      <!--field name="context">{'search_default_today': 1}</field-->
+      <!--field name="search_view_id" ref="credit_advice_filter"/-->
+      <field name="view_id" ref="bank_dat_tree"/>
+      <field name="search_view_id" ref="bank_dat_filter"/>
+      <field name="help" type="xml">
+        <p class="oe_view_nocontent_create">
+          Cliquer pour enregistrer un DAT
+        </p>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="res_bank_action">
+      <field name="name">Banque</field>
+      <field name="res_model">res.bank</field>
+      <field name="view_mode">tree,form</field>
+      <!--field name="context">{'search_default_today': 1}</field-->
+      <!--field name="search_view_id" ref="credit_advice_filter"/-->
+      <field name="view_id" ref="res_bank_tree"/>
+      <field name="help" type="xml">
+        <p class="oe_view_nocontent_create">
+          Cliquer pour enregistrer une nouvelle banque
+        </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="res_partner_bank_action">
+      <field name="name">Compte bancaire</field>
+      <field name="res_model">res.partner.bank</field>
+      <field name="view_mode">tree,form</field>
+      <!--field name="context">{'search_default_today': 1}</field-->
+      <!--field name="search_view_id" ref="credit_advice_filter"/-->
+      <field name="view_id" ref="res_partner_bank_tree"/>
+      <field name="help" type="xml">
+        <p class="oe_view_nocontent_create">
+          Cliquer pour enregistrer un nouveau compte bancaire
+        </p>
+      </field>
+    </record>
+
+    <menuitem
+      name="Recettes - Dépenses"  
+      id="menu_root"
+      web_icon="recipes_expenses,static/description/icon.png"
+      groups="recipes_expenses.recipes_group_user"
+      sequence="110"
+      />
+      <menuitem 
+              name="Recettes - Dépenses" 
+              id="menu_recipes_expenses" 
+              parent="menu_root"
+              groups="recipes_expenses.recipes_group_user"
+              />
+      <menuitem 
+              name="Recettes" 
+              id="menu_recipes" 
+              parent="menu_root"
+              sequence="10"
+              groups="recipes_expenses.recipes_group_user"
+              />
+      <menuitem 
+              name="DAT" 
+              id="menu_dat" 
+              parent="menu_recipes"
+              action="bank_dat_action"
+              sequence="10"
+              groups="recipes_expenses.recipes_group_user"
+              />
+      <menuitem 
+              name="Avis de crédit" 
+              id="menu_credit_advice" 
+              parent="menu_recipes"
+              action="credit_advice_action"
+              sequence="20"
+              groups="recipes_expenses.recipes_group_user"
+              />
+      <menuitem 
+              name="Configurations" 
+              id="menu_configurations" 
+              parent="menu_root"
+              sequence="100"
+              groups="recipes_expenses.recipes_group_manager"
+              />
+
+    <menuitem 
+              name="Banques" 
+              id="menu_bank_list" 
+              parent="menu_configurations"
+              action="res_bank_action"
+              sequence="10"
+              />
+    <menuitem 
+              name="Comptes bancaires" 
+              id="menu_bank_list" 
+              parent="menu_configurations"
+              action="res_partner_bank_action"
+              sequence="20"
+              />
+  </data>
+</odoo>

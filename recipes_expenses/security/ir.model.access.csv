@@ -1,0 +1,11 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+
+
+access_bank_dat_user,bank_dat,model_bank_dat,recipes_group_user,1,1,1,1
+access_credit_advice_user,credit_advice,model_credit_advice,recipes_group_user,1,1,1,1
+access_bank_dat_interest_user,bank_dat_interest,model_bank_dat_interest,recipes_group_user,1,1,1,1
+
+
+access_bank_dat_manager,bank_dat,model_bank_dat,recipes_group_manager,1,1,1,1
+access_credit_advice_manager,credit_advice,model_credit_advice,recipes_group_manager,1,1,1,1
+access_bank_dat_interest_manager,bank_dat_interest,model_bank_dat_interest,recipes_group_manager,1,1,1,1
