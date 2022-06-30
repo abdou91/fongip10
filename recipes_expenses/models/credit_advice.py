@@ -11,7 +11,7 @@ class CreditAdvice(models.Model):
 	date = fields.Date(string = "Date")
 	bank_account_id = fields.Many2one('res.partner.bank',string = "Compte")
 	#compte
-	#partner_id = fields.Many2one('res.partner',string = "Nom de l'établissement")
+	partner_id = fields.Many2one('res.partner',string = "Nom de l'établissement")
 	lot = fields.Integer(string = "Lot N")
 	page = fields.Integer(string = "Page")
 	line = fields.Integer(string = "Ligne")

@@ -164,6 +164,7 @@
               name="DAT" 
               id="menu_dat" 
               parent="menu_recipes"
+              action="bank_dat_action"
               sequence="10"
               groups="recipes_expenses.recipes_group_user"
               />
