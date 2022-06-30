@@ -23,7 +23,9 @@ class DAT(models.Model):
 	value_of_date = fields.Date(string = "Date de valeur")#date à partir de laquelle les echeances sont calculées
 	maturity_of_date = fields.Date(string = "Date de maturité")
 	payment_frequency = fields.Selection(PAYMENT_FREQUENCY, default = "mensuelle", string = "Périodicité de versement")
-	currency_id = fields.Many2one('res.currency', related='company_id.currency_id', readonly=True)
+	currency_id = fields.Many2one(
+        'res.currency', 'Currency', default=lambda self: self.env.company.currency_id.id
+    )
 	amount = fields.Monetary(string = "Montant")
 	interest = fields.Monetary(string = "Intérêt") #cumul des interets
 	outstanding_amount = fields.Monetary(string = "Encours")
@@ -56,7 +58,9 @@ class DatInterest(models.Model):
 	#montant_tva = retraitement_tva * 18%
 	#interet_net_sans_tva_et_irc = retraitement_tva - montant_irc_recalcule
 	#interet_net_irc_tva = interet_net_sans_tva_et_irc  + montant_tva + montant_irc_recalcule
-	currency_id = fields.Many2one('res.currency', related='company_id.currency_id', readonly=True)
+	currency_id = fields.Many2one(
+        'res.currency', 'Currency', default=lambda self: self.env.company.currency_id.id
+    )
 	interest_paid_by_the_bank = fields.Monetary(string = "Intérêt versé par la banque")
 	diff_interest = fields.Monetary(string = "INTERETS  / TRIM  RECALCULES  -  INT VERSES PAR LA BANQUE")
 	irc_retained_by_the_bank = fields.Monetary(string = "IRC retenu par la banque")
