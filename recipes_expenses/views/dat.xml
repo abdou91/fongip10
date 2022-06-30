@@ -144,6 +144,7 @@
       name="Recettes - Dépenses"  
       id="menu_root"
       web_icon="recipes_expenses,static/description/icon.png"
+      groups="recipes_expenses.recipes_group_user"
       sequence="110"
       />
       <menuitem 
