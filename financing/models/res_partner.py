@@ -16,8 +16,8 @@ class ResPartner(models.Model):
 	genre = fields.Selection(GENRE, string = "Genre",default = "Homme")
 	date_of_birth = fields.Date(string = "Date de naissance")
 	region_id = fields.Many2one('res.country.region',string = "Région")
-	department_id = fields.Many2one('res.country.department',string = "Département")
-	commune_id = fields.Many2one('res.country.commune',string = "Commune")
+	#department_id = fields.Many2one('res.country.department',string = "Département")
+	#commune_id = fields.Many2one('res.country.commune',string = "Commune")
 
 	ninea = fields.Char(string = "Ninéa")
 	registre_commerce = fields.Char(string = "Registre de commerce")
