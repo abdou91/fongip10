@@ -20,8 +20,6 @@
         <xpath expr="//field[@name='category_id']" position="after">
           <!--field name="capital" attrs="{'invisible':[('company_type','=','person')]}"/-->
             <field name="region_id"/>
-            <field name="department_id"/>
-            <field name="commune_id"/>
             <field name="company_type_id" attrs="{'invisible':[('company_type','=','person')]}"/>
             <field name="legal_status_id" attrs="{'invisible':[('company_type','=','person')]}"/>
             <field name="ninea" attrs="{'invisible':[('company_type','=','person')]}"/>
